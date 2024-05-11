@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
+    public FragmentManager fragmentM;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -48,6 +50,14 @@ public class PlayerMovement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fragment"))
+        {
+            Destroy(other.gameObject);
+            fragmentM.fragmentCount++;
         }
     }
 }
