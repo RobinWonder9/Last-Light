@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FragmentManager : MonoBehaviour
@@ -18,5 +19,12 @@ public class FragmentManager : MonoBehaviour
     void Update()
     {
         FragmentText.text = "Fragments Collected : " + fragmentCount.ToString();
+
+        if (fragmentCount == 5)
+        {
+            SceneManager.LoadScene("EndScene");
+        }
     }
+
+  
 }
