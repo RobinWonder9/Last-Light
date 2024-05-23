@@ -429,12 +429,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet. Et dolores voluptatem est nemo voluptatum
-    a soluta molestias ab architecto molestias ea.
+  m_text: 'Use A to move left, D to move right. Press spacebar to jump. The longer
+    you press the spacebar, the higher your jump will be.
 
 
-    Consequatur dicta eum dolorem
-    eveniet. Sit expedita nihil aut dolor sint.'
+    You need to collect
+    paper fragments that are distributed all throughout the area, these can help
+    you find your family.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -443,8 +444,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291813362
+  m_fontColor: {r: 0.94716984, g: 0.8760915, b: 0.81313634, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -461,8 +462,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
