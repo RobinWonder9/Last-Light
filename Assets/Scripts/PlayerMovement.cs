@@ -36,10 +36,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            animator.SetBool("IsJumping", !isGrounded);
-           
-        }
+            animator.SetBool("IsJumping", true);
 
+        }
+        //This allows us to jump longer if we press the spacebar longer
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
@@ -56,10 +56,16 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
+
+        // Update the IsJumping parameter based on whether the player is grounded
+        animator.SetBool("IsJumping", !IsGrounded());
     }
 
     private bool IsGrounded()
     {
+        //If you are adding obstacles and the player cannot jump on them, THIS IS WHY!!
+        //The player can only jump when they are resting on the "groundLayer"
+        //Just assign the layer "Ground" to the obstacle
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
     }
