@@ -5,14 +5,21 @@ using System;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
 
+    AudioManager audioManager;
     public Animator animator;
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
     bool isGrounded = false;
+
+    //calling the audio manager
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
 
     public FragmentManager fragmentM;
 
@@ -33,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
+        //using if statements to make sure the player is grounded before a jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -53,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //the animations depend on this force
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -70,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
@@ -83,8 +92,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        //if the player touches the photo fragments, they will disappear and play a sfx called photocollect
         if (other.gameObject.CompareTag("Fragment"))
         {
+            audioManager.PlaySFX(audioManager.photocollect);
             Destroy(other.gameObject);
             fragmentM.fragmentCount++;
             animator.SetBool("IsJumping", !isGrounded);

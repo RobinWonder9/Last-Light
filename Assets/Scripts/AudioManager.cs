@@ -10,12 +10,19 @@ public class AudioManager : MonoBehaviour
         public AudioClip background;
         public AudioClip missiles;
         public AudioClip wind;
+        public AudioClip walk;
+        public AudioClip photocollect;
 
 
     private void Start()
     {
         musicSource.clip = wind;
         musicSource.Play();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
     }
 
 }
