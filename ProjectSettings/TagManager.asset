@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
   - Ground
@@ -39,9 +39,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: black
+    uniqueID: 543511087
+    locked: 0
   - name: background
     uniqueID: 3100751223
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: tunnels
+    uniqueID: 4407373
+    locked: 0
+  - name: player
+    uniqueID: 2563577857
+    locked: 0
+  - name: rubble
+    uniqueID: 4080505781
     locked: 0
