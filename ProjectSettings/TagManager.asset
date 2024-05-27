@@ -58,6 +58,9 @@ TagManager:
   - name: rubble
     uniqueID: 4080505781
     locked: 0
+  - name: front rubble
+    uniqueID: 1013536405
+    locked: 0
   - name: lamp
     uniqueID: 58326251
     locked: 0

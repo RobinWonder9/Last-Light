@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public float delay = 15f; // Delay in seconds
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
 
@@ -16,13 +17,22 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicSource.clip = wind;
+
+        musicSource.clip = background;
         musicSource.Play();
+ 
+ 
     }
 
     public void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);
     }
+    }
 
-}
+    
+    
+
+
+
+
